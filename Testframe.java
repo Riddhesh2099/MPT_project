@@ -23,7 +23,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 @SuppressWarnings("unused")
-public class Secondbox extends JFrame {
+public class Testframe extends JFrame {
 
 	/**
 	 * 
@@ -53,7 +53,7 @@ public class Secondbox extends JFrame {
 	private JLabel printarea_logo;
 	private JLabel printarea_photo;
 	private JLabel printarea_sign;
-	private JLabel sign_label;
+	private JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -62,7 +62,7 @@ public class Secondbox extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Secondbox window = new Secondbox();
+					Testframe window = new Testframe();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -74,7 +74,7 @@ public class Secondbox extends JFrame {
 	/**
 	 * Create the application.
 	 */
-	public Secondbox() {
+	public Testframe() {
 		
 		initialize();
 	}
@@ -202,7 +202,6 @@ public class Secondbox extends JFrame {
 		});
 		
 		JPanel printarea_panel = new JPanel();
-		printarea_panel.setBackground(new Color(255, 255, 255));
 		printarea_panel.setBounds(393, 166, 535, 339);
 		frame.getContentPane().add(printarea_panel);
 		printarea_panel.setLayout(null);
@@ -233,16 +232,15 @@ public class Secondbox extends JFrame {
 		printarea_sign.setOpaque(true);
 		printarea_sign.setHorizontalAlignment(SwingConstants.CENTER);
 		printarea_sign.setBackground(new Color(255, 255, 255));
-		printarea_sign.setBounds(389, 280, 146, 48);
+		printarea_sign.setBounds(389, 280, 146, 59);
 		printarea_panel.add(printarea_sign);
 		
-		sign_label = new JLabel("SIGNATURE");
-		sign_label.setVisible(false);
-		sign_label.setOpaque(true);
-		sign_label.setHorizontalAlignment(SwingConstants.CENTER);
-		sign_label.setBackground(new Color(255, 255, 255));
-		sign_label.setBounds(389, 234, 146, 45);
-		printarea_panel.add(sign_label);
+		lblNewLabel = new JLabel("SIGNATURE");
+		lblNewLabel.setOpaque(true);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBackground(new Color(255, 255, 255));
+		lblNewLabel.setBounds(389, 234, 146, 45);
+		printarea_panel.add(lblNewLabel);
 		btnClear.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnClear.setBounds(10, 565, 111, 35);
 		frame.getContentPane().add(btnClear);
@@ -434,7 +432,6 @@ public class Secondbox extends JFrame {
 		JButton btnUploadSign = new JButton("UPLOAD SIGNATURE");
 		btnUploadSign.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sign_label.setVisible(true);
 				//Code to upload signature
 				JFileChooser file = new JFileChooser();
 		          file.setCurrentDirectory(new File(System.getProperty("user.home")));
