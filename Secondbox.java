@@ -233,7 +233,7 @@ public class Secondbox extends JFrame {
 		printarea_sign.setOpaque(true);
 		printarea_sign.setHorizontalAlignment(SwingConstants.CENTER);
 		printarea_sign.setBackground(new Color(255, 255, 255));
-		printarea_sign.setBounds(389, 280, 146, 48);
+		printarea_sign.setBounds(389, 280, 146, 35);
 		printarea_panel.add(printarea_sign);
 		
 		sign_label = new JLabel("SIGNATURE");
@@ -420,7 +420,7 @@ public class Secondbox extends JFrame {
 			}
 
 			public Icon ResizeImage(String ImagePath) {
-				// method to resize image according to Jlabel
+				// method to resize image according to Jlabel for photo
 				ImageIcon MyImage = new ImageIcon(ImagePath);
 		        Image img = MyImage.getImage();
 		        Image newImg = img.getScaledInstance(printarea_photo.getWidth(), printarea_photo.getHeight(), Image.SCALE_SMOOTH);
@@ -457,7 +457,7 @@ public class Secondbox extends JFrame {
 			}
 
 			public Icon Resize(String path) {
-				// method to resize signature to Jlabel
+				// method to resize signature to Jlabel for signature
 				ImageIcon MyImage = new ImageIcon(path);
 		        Image img = MyImage.getImage();
 		        Image newImg = img.getScaledInstance(printarea_sign.getWidth(), printarea_sign.getHeight(), Image.SCALE_SMOOTH);
