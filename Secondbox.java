@@ -21,6 +21,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.border.LineBorder;
 
 @SuppressWarnings("unused")
 public class Secondbox extends JFrame {
@@ -94,7 +95,7 @@ public class Secondbox extends JFrame {
 		
 		JLabel mpt_logo = new JLabel("");
 		mpt_logo.setHorizontalAlignment(SwingConstants.CENTER);
-		Image img = new ImageIcon(this.getClass().getResource("/MPT.jpg")).getImage();
+		Image img = new ImageIcon(this.getClass().getResource("/logo_test.jpg")).getImage();
 		mpt_logo.setIcon(new ImageIcon(img));
 		mpt_logo.setBounds(10, 0, 864, 82);
 		frame.getContentPane().add(mpt_logo);
@@ -202,8 +203,9 @@ public class Secondbox extends JFrame {
 		});
 		
 		JPanel printarea_panel = new JPanel();
-		printarea_panel.setBackground(new Color(255, 255, 255));
-		printarea_panel.setBounds(393, 166, 535, 339);
+		printarea_panel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		printarea_panel.setBackground(Color.WHITE);
+		printarea_panel.setBounds(489, 213, 324, 204);
 		frame.getContentPane().add(printarea_panel);
 		printarea_panel.setLayout(null);
 		
@@ -212,12 +214,13 @@ public class Secondbox extends JFrame {
 		printarea_logo.setIcon(new ImageIcon(img));
 		printarea_logo.setBackground(new Color(255, 255, 255));
 		printarea_logo.setHorizontalAlignment(SwingConstants.CENTER);
-		printarea_logo.setBounds(0, 0, 535, 75);
+		printarea_logo.setBounds(2, 2, 320, 30);
 		printarea_panel.add(printarea_logo);
 		
 		printarea_text = new JTextArea();
+		printarea_text.setFont(new Font("Monospaced", Font.PLAIN, 9));
 		printarea_text.setBorder(null);
-		printarea_text.setBounds(0, 75, 389, 264);
+		printarea_text.setBounds(2, 41, 202, 161);
 		printarea_panel.add(printarea_text);
 		printarea_text.setColumns(10);
 		
@@ -225,24 +228,25 @@ public class Secondbox extends JFrame {
 		printarea_photo.setHorizontalAlignment(SwingConstants.CENTER);
 		printarea_photo.setOpaque(true);
 		printarea_photo.setBackground(new Color(255, 255, 255));
-		printarea_photo.setBounds(389, 75, 146, 162);
+		printarea_photo.setBounds(223, 41, 91, 103);
 		printarea_panel.add(printarea_photo);
 		
 		printarea_sign = new JLabel("");
+		printarea_sign.setBounds(212, 163, 102, 30);
+		printarea_panel.add(printarea_sign);
 		printarea_sign.setVerticalAlignment(SwingConstants.TOP);
 		printarea_sign.setOpaque(true);
 		printarea_sign.setHorizontalAlignment(SwingConstants.CENTER);
 		printarea_sign.setBackground(new Color(255, 255, 255));
-		printarea_sign.setBounds(389, 280, 146, 35);
-		printarea_panel.add(printarea_sign);
 		
 		sign_label = new JLabel("SIGNATURE");
 		sign_label.setVisible(false);
-		sign_label.setOpaque(true);
-		sign_label.setHorizontalAlignment(SwingConstants.CENTER);
-		sign_label.setBackground(new Color(255, 255, 255));
-		sign_label.setBounds(389, 234, 146, 45);
+		sign_label.setFont(new Font("Tahoma", Font.PLAIN, 8));
+		sign_label.setBounds(222, 146, 78, 20);
 		printarea_panel.add(sign_label);
+		sign_label.setOpaque(true);
+		sign_label.setHorizontalAlignment(SwingConstants.LEFT);
+		sign_label.setBackground(new Color(255, 255, 255));
 		btnClear.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnClear.setBounds(10, 565, 111, 35);
 		frame.getContentPane().add(btnClear);
@@ -251,13 +255,14 @@ public class Secondbox extends JFrame {
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Confirm button action
-				printarea_text.append(    "ID:\t \t"+ id_text.getText()+"\n \n"
-										+ "Name:\t \t"+ name_text.getText()+"\n \n"
-										+ "Designation:\t \t"+ designation_text.getText()+"\n \n"
-										+ "Last Department:\t"+ lastdept_text.getText()+"\n \n"
-										+ "Blood Group:\t \t"+ bloodgroup_text.getText()+"\n \n"
-										+ "Address:\t \t"+ address_text.getText()+"\n \n"
-										+ "Phone:\t \t"+ phone_text.getText()+"\n \n"
+				printarea_text.append(  "______________________________________________________________________________________________"
+										+ "ID:\t \t"+ id_text.getText()+"\n "
+										+ "Name:\t \t \t"+ name_text.getText()+" \n "
+										+ "Designation:\t\t"+ designation_text.getText()+" \n "
+										+ "Department:\t\t"+ lastdept_text.getText()+" \n "
+										+ "Blood Group:\t \t"+ bloodgroup_text.getText()+" \n "
+										+ "Address:\t \t"+ address_text.getText()+"\n "
+										+ "Phone:\t\t\t"+ phone_text.getText()+"\n "
 										+ "Retirement Date:\t"+ retdate_text.getText()+"\n"
 										+ "______________________________________________________________________________________________");
 			}
@@ -420,7 +425,7 @@ public class Secondbox extends JFrame {
 			}
 
 			public Icon ResizeImage(String ImagePath) {
-				// method to resize image according to Jlabel for photo
+				// method to resize image according to Jlabel
 				ImageIcon MyImage = new ImageIcon(ImagePath);
 		        Image img = MyImage.getImage();
 		        Image newImg = img.getScaledInstance(printarea_photo.getWidth(), printarea_photo.getHeight(), Image.SCALE_SMOOTH);
@@ -434,8 +439,8 @@ public class Secondbox extends JFrame {
 		JButton btnUploadSign = new JButton("UPLOAD SIGNATURE");
 		btnUploadSign.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sign_label.setVisible(true);
 				//Code to upload signature
+				sign_label.setVisible(true);
 				JFileChooser file = new JFileChooser();
 		          file.setCurrentDirectory(new File(System.getProperty("user.home")));
 		          //filter the files
@@ -457,7 +462,7 @@ public class Secondbox extends JFrame {
 			}
 
 			public Icon Resize(String path) {
-				// method to resize signature to Jlabel for signature
+				// method to resize signature to Jlabel
 				ImageIcon MyImage = new ImageIcon(path);
 		        Image img = MyImage.getImage();
 		        Image newImg = img.getScaledInstance(printarea_sign.getWidth(), printarea_sign.getHeight(), Image.SCALE_SMOOTH);
