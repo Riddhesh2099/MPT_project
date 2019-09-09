@@ -13,9 +13,6 @@ For the testing purpose we have stored data in Excel sheet (as the original data
  Basically It takes Id number of employee as one of the input or either you can manually enter the employee details and  in the next step it fetches the data stored in the excel file.Also Before printing the identity card it gives access to the  operator to edit the phone,Address and recent photograph of the employee 
 </p>
 
-
-# MPT_project
-<h5>Swing frame application for printing cards</h5><br>
 <h6>Instructions:</h6><br>
 1. Download Application_Data.rar to get the necessary jar files and other folders(images, sample excel sheet etc.).<br>
 2. The code can be found in Application_Data: src-->JavaDB_001-->Secondbox.java or the application code (.java) file on git. <br>
